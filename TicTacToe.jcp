@@ -19,7 +19,7 @@
 			<applet_ref/>
 			<debugger_ref/>
 			<param/>
-			<run>Application</run>
+			<run>Main</run>
 			<verify>true</verify>
 		</runtime>
 	</runtimes>
@@ -33,6 +33,10 @@
 				<path>src\Application.java</path>
 				<folder>src</folder>
 			</fileitem>
+			<fileitem>
+				<path>src\Main.java</path>
+				<folder>src</folder>
+			</fileitem>
 		</include>
 	</files>
 	<tasks>
@@ -41,12 +45,6 @@
 			<filepath>src\TicTacToe.java</filepath>
 			<line>16</line>
 			<timestamp>1420000599</timestamp>
-		</todotaskitem>
-		<todotaskitem>
-			<description>TODO, add your application code</description>
-			<filepath>src\Application.java</filepath>
-			<line>16</line>
-			<timestamp>1420000664</timestamp>
 		</todotaskitem>
 	</tasks>
 </project>
