@@ -7,11 +7,25 @@
  * @version 1.00 2014/12/30
  */
  
-public class Application {
-    
-    public static void main(String[] args) {
-    	
-    	// TODO, add your application code
-    	System.out.println("Hello World!");
-    }
+public class Application 
+{
+  // ******************  Instance variables  ******************
+  
+  
+  
+  // *********************  Constructors  *********************
+  
+  public Application()
+  {
+    System.out.println("Hello World");
+  }
+  
+  // ********************  Public methods  ********************
+  
+  
+  
+  // ********************  Private methods ********************
+  
+  
+  
 }
