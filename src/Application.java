@@ -1,13 +1,13 @@
 /**
- * @(#)TicTacToe.java
+ * @(#)Application.java
  *
  * TicTacToe application
  *
- * @author 
+ * @author Aaron Singh
  * @version 1.00 2014/12/30
  */
  
-public class TicTacToe {
+public class Application {
     
     public static void main(String[] args) {
     	
