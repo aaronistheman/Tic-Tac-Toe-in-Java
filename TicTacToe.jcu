@@ -9,11 +9,16 @@
 			<label>TicTacToe</label>
 			<showfiles>false</showfiles>
 			<folderitem>
-				<path>classes</path>
-			</folderitem>
-			<folderitem>
 				<path>src</path>
 			</folderitem>
 		</project>
 	</projects>
+	<open_files>
+		<docitem>
+			<path>src\Application.java</path>
+			<source>true</source>
+			<index>0</index>
+			<active>true</active>
+		</docitem>
+	</open_files>
 </workspace_user>
