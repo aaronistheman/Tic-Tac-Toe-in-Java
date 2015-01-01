@@ -17,15 +17,28 @@ public class Application
   
   public Application()
   {
-    System.out.println("Hello World");
+    System.out.println("Application::Application()");
   }
   
   // ********************  Public methods  ********************
   
-  
+  public void run()
+  {
+    System.out.println("Application::run()");
+    
+    displayBoard();
+  }
   
   // ********************  Private methods ********************
   
-  
+  private void displayBoard()
+  {
+    System.out.println("  |  |  ");
+    System.out.println("__|__|__");
+    System.out.println("  |  |  ");
+    System.out.println("__|__|__");
+    System.out.println("  |  |  ");
+    System.out.println("  |  |  ");
+  }
   
 }
