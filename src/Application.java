@@ -7,6 +7,9 @@
  * @version 1.00 2014/12/30
  */
  
+import java.util.Scanner;
+
+ 
 public class Application 
 {
   // *******************  Static constants  *******************
@@ -17,12 +20,14 @@ public class Application
   
   // ******************  Instance variables  ******************
   
-  char a1, a2, a3, b1, b2, b3, c1, c2, c3;
+  char mCurrentTurn, a1, a2, a3, b1, b2, b3, c1, c2, c3;
+  Scanner mScanner;
   
   // *********************  Constructors  *********************
   
   public Application()
   {
+    mCurrentTurn = x;
     a1 = blank;
     a2 = blank;
     a3 = blank;
@@ -32,13 +37,16 @@ public class Application
     c1 = blank;
     c2 = blank;
     c3 = blank;
+    
+    mScanner = new Scanner(System.in);
   }
   
   // ********************  Public methods  ********************
   
   public void run()
   {
-    displayBoard();
+    // while (true)
+      doTurn();
   }
   
   // ********************  Private methods ********************
@@ -52,6 +60,23 @@ public class Application
     System.out.println("   " + c1 + "| " + c2 + "| " + c3);
     System.out.println("c   |  |  ");
     System.out.println("  1  2  3 ");
+  }
+  
+  private void doTurn()
+  {
+    displayBoard();
+    getInput();
+  }
+  
+  private void getInput()
+  {
+    System.out.println("Current turn: " + mCurrentTurn);
+    System.out.println("Enter the address of the square in which you");
+    System.out.println("would like your shape (ex: b2).");
+    
+    String input = mScanner.nextLine();
+    
+    System.out.println(input);
   }
   
 }
