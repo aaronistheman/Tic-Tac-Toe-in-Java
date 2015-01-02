@@ -74,7 +74,7 @@ public class Application
   private void doTurn()
   {
     displayBoard();
-    // updateBoard(getInput());
+    updateBoard(getInput());
   }
   
   private String getInput()
@@ -84,8 +84,6 @@ public class Application
     System.out.println("would like your shape (ex: b2).");
     
     String input = mScanner.nextLine();
-    
-    System.out.println(input);
     
     checkInput();
     
@@ -101,22 +99,25 @@ public class Application
   {
     if (a1.getName() == square)
       a1.setMark(mCurrentTurn);
-    if (a2.getName() == square)
+    else if (a2.getName().equals(square))
       a2.setMark(mCurrentTurn);
-    if (a3.getName() == square)
+    else if (a3.getName().equals(square))
       a3.setMark(mCurrentTurn);
-    if (b1.getName() == square)
+    else if (b1.getName().equals(square))
       b1.setMark(mCurrentTurn);
-    if (b2.getName() == square)
+    else if (b2.getName().equals(square))
       b2.setMark(mCurrentTurn);
-    if (b3.getName() == square)
+    else if (b3.getName().equals(square))
       b3.setMark(mCurrentTurn);
-    if (c1.getName() == square)
+    else if (c1.getName().equals(square))
       c1.setMark(mCurrentTurn);
-    if (c2.getName() == square)
+    else if (c2.getName().equals(square))
       c2.setMark(mCurrentTurn);
-    if (c3.getName() == square)
+    else if (c3.getName().equals(square))
       c3.setMark(mCurrentTurn);
+    else
+      throw new AssertionError(
+        "updateBoard() called with invalid argument: " + square);
   }
   
   private void switchTurn()
