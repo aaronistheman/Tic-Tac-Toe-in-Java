@@ -74,10 +74,10 @@ public class Application
   private void doTurn()
   {
     displayBoard();
-    getInput();
+    // updateBoard(getInput());
   }
   
-  private void getInput()
+  private String getInput()
   {
     System.out.println("Current turn: " + mCurrentTurn);
     System.out.println("Enter the address of the square in which you");
@@ -86,6 +86,42 @@ public class Application
     String input = mScanner.nextLine();
     
     System.out.println(input);
+    
+    checkInput();
+    
+    return input;
+  }
+  
+  private void checkInput()
+  {
+    System.out.println("checkInput()");
+  }
+  
+  private void updateBoard(String square)
+  {
+    if (a1.getName() == square)
+      a1.setMark(mCurrentTurn);
+    if (a2.getName() == square)
+      a2.setMark(mCurrentTurn);
+    if (a3.getName() == square)
+      a3.setMark(mCurrentTurn);
+    if (b1.getName() == square)
+      b1.setMark(mCurrentTurn);
+    if (b2.getName() == square)
+      b2.setMark(mCurrentTurn);
+    if (b3.getName() == square)
+      b3.setMark(mCurrentTurn);
+    if (c1.getName() == square)
+      c1.setMark(mCurrentTurn);
+    if (c2.getName() == square)
+      c2.setMark(mCurrentTurn);
+    if (c3.getName() == square)
+      c3.setMark(mCurrentTurn);
+  }
+  
+  private void switchTurn()
+  {
+    // if (currentTurn 
   }
   
 }

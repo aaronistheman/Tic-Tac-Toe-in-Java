@@ -30,9 +30,19 @@ public class Square
     return mName;
   }
   
+  public void setName(String name)
+  {
+    mName = name;
+  }
+  
   public char getMark()
   {
     return mMark;
+  }
+  
+  public void setMark(char mark)
+  {
+    mMark = mark;
   }
   
 }
