@@ -48,6 +48,8 @@ public class Application
   public void run()
   {
     doTurn();
+    doTurn();
+    doTurn();
   }
   
   // ********************  Private methods ********************
@@ -99,7 +101,7 @@ public class Application
   // then changes that Square's mark to the current player's mark
   private void updateBoard(String square)
   {
-    if (a1.getName() == square)
+    if (a1.getName().equals(square))
       a1.setMark(mCurrentTurn);
     else if (a2.getName().equals(square))
       a2.setMark(mCurrentTurn);
