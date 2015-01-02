@@ -81,47 +81,54 @@ public class Application
   
   private String getInput()
   {
+    // Show prompt
     System.out.println("Current turn: " + mCurrentTurn);
     System.out.println("Enter the address of the square in which you");
     System.out.println("would like your shape (ex: b2).");
     
+    // Asks for input until given valid input
     String input = mScanner.nextLine();
-    
-    checkInput();
+    if (badInput(input))
+      input = mScanner.nextLine();
     
     return input;
   }
   
-  private void checkInput()
+  private boolean badInput(String square)
   {
-    System.out.println("checkInput()");
+    return false;
+  }
+  
+  private Square getCorrespondingSquare(String name)
+  {
+    if (a1.getName().equals(name))
+      return a1;
+    else if (a2.getName().equals(name))
+      return a2;
+    else if (a3.getName().equals(name))
+      return a3;
+    else if (b1.getName().equals(name))
+      return b1;
+    else if (b2.getName().equals(name))
+      return b2;
+    else if (b3.getName().equals(name))
+      return b3;
+    else if (c1.getName().equals(name))
+      return c1;
+    else if (c2.getName().equals(name))
+      return c2;
+    else if (c3.getName().equals(name))
+      return c3;
+    else
+      throw new AssertionError(
+        "getCorrespondingSquare() called with invalid argument: " + name);
   }
   
   // Uses the parameter to find the appropriate Square,
   // then changes that Square's mark to the current player's mark
   private void updateBoard(String square)
   {
-    if (a1.getName().equals(square))
-      a1.setMark(mCurrentTurn);
-    else if (a2.getName().equals(square))
-      a2.setMark(mCurrentTurn);
-    else if (a3.getName().equals(square))
-      a3.setMark(mCurrentTurn);
-    else if (b1.getName().equals(square))
-      b1.setMark(mCurrentTurn);
-    else if (b2.getName().equals(square))
-      b2.setMark(mCurrentTurn);
-    else if (b3.getName().equals(square))
-      b3.setMark(mCurrentTurn);
-    else if (c1.getName().equals(square))
-      c1.setMark(mCurrentTurn);
-    else if (c2.getName().equals(square))
-      c2.setMark(mCurrentTurn);
-    else if (c3.getName().equals(square))
-      c3.setMark(mCurrentTurn);
-    else
-      throw new AssertionError(
-        "updateBoard() called with invalid argument: " + square);
+    getCorrespondingSquare(square).setMark(mCurrentTurn);
   }
   
   private void switchTurn()

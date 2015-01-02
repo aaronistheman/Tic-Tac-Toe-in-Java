@@ -37,6 +37,10 @@
 				<path>src\Main.java</path>
 				<folder>src</folder>
 			</fileitem>
+			<fileitem>
+				<path>src\Square.java</path>
+				<folder>src</folder>
+			</fileitem>
 		</include>
 	</files>
 	<tasks>
