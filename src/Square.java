@@ -12,8 +12,8 @@ public class Square
   
   // ******************  Instance variables  ******************
 
-  String  mName;
-  char    mMark;
+  String  mName; // example: "b2"
+  char    mMark; // will be 'x', 'o', or ' '
   
   // *********************  Constructors  *********************
   

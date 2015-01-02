@@ -47,8 +47,7 @@ public class Application
   
   public void run()
   {
-    // while (true)
-      doTurn();
+    doTurn();
   }
   
   // ********************  Private methods ********************
@@ -96,6 +95,8 @@ public class Application
     System.out.println("checkInput()");
   }
   
+  // Uses the parameter to find the appropriate Square,
+  // then changes that Square's mark to the current player's mark
   private void updateBoard(String square)
   {
     if (a1.getName() == square)
