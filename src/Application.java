@@ -75,6 +75,7 @@ public class Application
   {
     displayBoard();
     updateBoard(getInput());
+    switchTurn();
   }
   
   private String getInput()
@@ -122,7 +123,13 @@ public class Application
   
   private void switchTurn()
   {
-    // if (currentTurn 
+    if (mCurrentTurn == x)
+      mCurrentTurn = o;
+    else if (mCurrentTurn == o)
+      mCurrentTurn = x;
+    else
+      throw new AssertionError(
+        "mCurrentTurn should be 'x' or 'o', but is: " + mCurrentTurn);
   }
   
 }
