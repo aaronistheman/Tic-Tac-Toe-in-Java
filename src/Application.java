@@ -20,25 +20,27 @@ public class Application
   
   // ******************  Instance variables  ******************
   
-  char mCurrentTurn, a1, a2, a3, b1, b2, b3, c1, c2, c3;
-  Scanner mScanner;
+  char mCurrentTurn;
+  Scanner mScanner; // for input
+  
+  Square a1, a2, a3, b1, b2, b3, c1, c2, c3;
   
   // *********************  Constructors  *********************
   
   public Application()
   {
     mCurrentTurn = x;
-    a1 = blank;
-    a2 = blank;
-    a3 = blank;
-    b1 = blank;
-    b2 = blank;
-    b3 = blank;
-    c1 = blank;
-    c2 = blank;
-    c3 = blank;
-    
     mScanner = new Scanner(System.in);
+    
+    a1 = new Square("a1", blank);
+    a2 = new Square("a2", blank);
+    a3 = new Square("a3", blank);
+    b1 = new Square("b1", blank);
+    b2 = new Square("b2", blank);
+    b3 = new Square("b3", blank);
+    c1 = new Square("c1", blank);
+    c2 = new Square("c2", blank);
+    c3 = new Square("c3", blank);
   }
   
   // ********************  Public methods  ********************
@@ -53,11 +55,18 @@ public class Application
   
   private void displayBoard()
   {
-    System.out.println("   " + a1 + "| " + a2 + "| " + a3);
+    String row1 = "   " + a1.getMark() + "| " + a2.getMark() + 
+      "| " + a3.getMark();
+    String row2 = "   " + b1.getMark() + "| " + b2.getMark() + 
+      "| " + b3.getMark();
+    String row3 = "   " + c1.getMark() + "| " + c2.getMark() + 
+      "| " + c3.getMark();
+    
+    System.out.println(row1);
     System.out.println("a __|__|__");
-    System.out.println("   " + b1 + "| " + b2 + "| " + b3);
+    System.out.println(row2);
     System.out.println("b __|__|__");
-    System.out.println("   " + c1 + "| " + c2 + "| " + c3);
+    System.out.println(row3);
     System.out.println("c   |  |  ");
     System.out.println("  1  2  3 ");
   }
