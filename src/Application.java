@@ -14,33 +14,40 @@ public class Application
 {
   // *******************  Static constants  *******************
   
-  static final char x = 'x';
-  static final char o = 'o';
-  static final char blank = ' ';
+  private static final char markX = 'x';
+  private static final char markO = 'o';
+  private static final char markBlank = ' ';
+  
+  // game board row coordinates
+  private static final int rowA = 0;
+  private static final int rowB = 1;
+  private static final int rowC = 2;
+  
+  // game board column coordinates
+  private static final int column1 = 0;
+  private static final int column2 = 1;
+  private static final int column3 = 2;
   
   // ******************  Instance variables  ******************
   
-  char mCurrentTurn;
-  Scanner mScanner; // for input
+  private char mCurrentTurn;
+  private Scanner mScanner; // for input
   
-  Square a1, a2, a3, b1, b2, b3, c1, c2, c3;
+  private Square[][] mBoard;
   
   // *********************  Constructors  *********************
   
   public Application()
   {
-    mCurrentTurn = x;
+    mCurrentTurn = markX;
     mScanner = new Scanner(System.in);
     
-    a1 = new Square("a1", blank);
-    a2 = new Square("a2", blank);
-    a3 = new Square("a3", blank);
-    b1 = new Square("b1", blank);
-    b2 = new Square("b2", blank);
-    b3 = new Square("b3", blank);
-    c1 = new Square("c1", blank);
-    c2 = new Square("c2", blank);
-    c3 = new Square("c3", blank);
+    mBoard = new Square[3][3];
+    for (int r = 0; r < mBoard.length; r++)
+      for (int c = 0; c < mBoard[r].length; c++)
+      {
+        mBoard[r][c] = new Square(markBlank);
+      }
   }
   
   // ********************  Public methods  ********************
@@ -56,12 +63,12 @@ public class Application
   
   private void displayBoard()
   {
-    String row1 = "   " + a1.getMark() + "| " + a2.getMark() + 
-      "| " + a3.getMark();
-    String row2 = "   " + b1.getMark() + "| " + b2.getMark() + 
-      "| " + b3.getMark();
-    String row3 = "   " + c1.getMark() + "| " + c2.getMark() + 
-      "| " + c3.getMark();
+    String row1 = "   " + mBoard[rowA][0].getMark() + "| " + 
+      mBoard[rowA][1].getMark() + "| " + mBoard[rowA][2].getMark();
+    String row2 = "   " + mBoard[rowB][0].getMark() + "| " + 
+      mBoard[rowB][1].getMark() + "| " + mBoard[rowB][2].getMark();
+    String row3 = "   " + mBoard[rowC][0].getMark() + "| " + 
+      mBoard[rowC][1].getMark() + "| " + mBoard[rowC][2].getMark();
     
     System.out.println(row1);
     System.out.println("a __|__|__");
@@ -99,44 +106,83 @@ public class Application
     return false;
   }
   
-  // Uses the parameter to find the appropriate square
-  private Square getCorrespondingSquare(String name)
+  // Uses parameter name to find the coordinates of the corresponding square
+  private Coordinates getCoordinates(String name)
   {
-    if (a1.getName().equals(name))
-      return a1;
-    else if (a2.getName().equals(name))
-      return a2;
-    else if (a3.getName().equals(name))
-      return a3;
-    else if (b1.getName().equals(name))
-      return b1;
-    else if (b2.getName().equals(name))
-      return b2;
-    else if (b3.getName().equals(name))
-      return b3;
-    else if (c1.getName().equals(name))
-      return c1;
-    else if (c2.getName().equals(name))
-      return c2;
-    else if (c3.getName().equals(name))
-      return c3;
+    int row = 0;
+    int column = 0;
+    
+    if (name.equals("a1"))
+    {
+      row = rowA;
+      column = column1;
+    }
+    else if (name.equals("a2"))
+    {
+      row = rowA;
+      column = column2;
+    }
+    else if (name.equals("a3"))
+    {
+      row = rowA;
+      column = column3;
+    }
+    else if (name.equals("b1"))
+    {
+      row = rowB;
+      column = column1;
+    }
+    else if (name.equals("b2"))
+    {
+      row = rowB;
+      column = column2;
+    }
+    else if (name.equals("b3"))
+    {
+      row = rowB;
+      column = column3;
+    }
+    else if (name.equals("c1"))
+    {
+      row = rowC;
+      column = column1;
+    }
+    else if (name.equals("c2"))
+    {
+      row = rowC;
+      column = column2;
+    }
+    else if (name.equals("c3"))
+    {
+      row = rowC;
+      column = column3;
+    }
     else
       throw new AssertionError(
-        "getCorrespondingSquare() called with invalid argument: " + name);
+        "getCoordinates() called with invalid argument: " + name);
+    
+    return new Coordinates(row, column);
+  }
+  
+  // Uses parameter name to find the correct square in the matrix
+  private Square getCorrespondingSquare(Square[][] squares, String name)
+  {
+    Coordinates coordinates = getCoordinates(name);
+    return mBoard[coordinates.mRow][coordinates.mColumn];
   }
   
   // Changes the approriate square's mark to match the active player's mark
   private void updateBoard(String square)
   {
-    getCorrespondingSquare(square).setMark(mCurrentTurn);
+    getCorrespondingSquare(mBoard, square).setMark(mCurrentTurn);
   }
   
   private void switchTurn()
   {
-    if (mCurrentTurn == x)
-      mCurrentTurn = o;
-    else if (mCurrentTurn == o)
-      mCurrentTurn = x;
+    if (mCurrentTurn == markX)
+      mCurrentTurn = markO;
+    else if (mCurrentTurn == markO)
+      mCurrentTurn = markX;
     else
       throw new AssertionError(
         "mCurrentTurn should be 'x' or 'o', but is: " + mCurrentTurn);
