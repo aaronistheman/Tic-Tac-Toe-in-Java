@@ -12,7 +12,7 @@ public class Square
   
   // ******************  Instance variables  ******************
 
-  char mMark; // will be 'x', 'o', or ' '
+  private char mMark; // will be 'x', 'o', or ' '
   
   // *********************  Constructors  *********************
   

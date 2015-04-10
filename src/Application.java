@@ -14,21 +14,21 @@ public class Application
 {
   // *******************  Static constants  *******************
   
-  static final char x = 'x';
-  static final char o = 'o';
-  static final char blank = ' ';
+  private static final char x = 'x';
+  private static final char o = 'o';
+  private static final char blank = ' ';
   
   // game board row coordinates
-  static final int a = 0;
-  static final int b = 1;
-  static final int c = 2;
+  private static final int a = 0;
+  private static final int b = 1;
+  private static final int c = 2;
   
   // ******************  Instance variables  ******************
   
-  char mCurrentTurn;
-  Scanner mScanner; // for input
+  private char mCurrentTurn;
+  private Scanner mScanner; // for input
   
-  Square[][] mBoard;
+  private Square[][] mBoard;
   
   // *********************  Constructors  *********************
   
@@ -56,12 +56,12 @@ public class Application
   
   private void displayBoard()
   {
-    String row1 = "   " + a1.getMark() + "| " + a2.getMark() + 
-      "| " + a3.getMark();
-    String row2 = "   " + b1.getMark() + "| " + b2.getMark() + 
-      "| " + b3.getMark();
-    String row3 = "   " + c1.getMark() + "| " + c2.getMark() + 
-      "| " + c3.getMark();
+    String row1 = "   " + mBoard[a][0].getMark() + "| " + 
+      mBoard[a][1].getMark() + "| " + mBoard[a][2].getMark();
+    String row2 = "   " + mBoard[b][0].getMark() + "| " + 
+      mBoard[b][1].getMark() + "| " + mBoard[b][2].getMark();
+    String row3 = "   " + mBoard[c][0].getMark() + "| " + 
+      mBoard[c][1].getMark() + "| " + mBoard[c][2].getMark();
     
     System.out.println(row1);
     System.out.println("a __|__|__");
@@ -123,6 +123,12 @@ public class Application
     else
       throw new AssertionError(
         "getCorrespondingSquare() called with invalid argument: " + name);
+  }
+  
+  // Uses parameter name to find the correct square in the matrix
+  private Square getCorrespondingSquare(Square[][] squares, String name)
+  {
+    
   }
   
   // Changes the approriate square's mark to match the active player's mark
