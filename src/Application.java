@@ -14,14 +14,19 @@ public class Application
 {
   // *******************  Static constants  *******************
   
-  private static final char x = 'x';
-  private static final char o = 'o';
-  private static final char blank = ' ';
+  private static final char markX = 'x';
+  private static final char markO = 'o';
+  private static final char markBlank = ' ';
   
   // game board row coordinates
-  private static final int a = 0;
-  private static final int b = 1;
-  private static final int c = 2;
+  private static final int rowA = 0;
+  private static final int rowB = 1;
+  private static final int rowC = 2;
+  
+  // game board column coordinates
+  private static final int column1 = 0;
+  private static final int column2 = 1;
+  private static final int column3 = 2;
   
   // ******************  Instance variables  ******************
   
@@ -123,6 +128,64 @@ public class Application
     else
       throw new AssertionError(
         "getCorrespondingSquare() called with invalid argument: " + name);
+  }
+  
+  // Uses parameter name to find the coordinates of the corresponding square
+  private Coordinates getCoordinates(String name)
+  {
+    int row = 0;
+    int column = 0;
+    
+    if (name.equals("a1"))
+    {
+      row = rowA;
+      column = column1;
+    }
+    else if (name.equals("a2"))
+    {
+      row = rowA;
+      column = column2;
+    }
+    else if (name.equals("a3"))
+    {
+      row = rowA;
+      column = column3;
+    }
+    else if (name.equals("b1"))
+    {
+      row = rowB;
+      column = column1;
+    }
+    else if (name.equals("b2"))
+    {
+      row = rowB;
+      column = column2;
+    }
+    else if (name.equals("b3"))
+    {
+      row = rowB;
+      column = column3;
+    }
+    else if (name.equals("c1"))
+    {
+      row = rowC;
+      column = column1;
+    }
+    else if (name.equals("c2"))
+    {
+      row = rowC;
+      column = column2;
+    }
+    else if (name.equals("c3"))
+    {
+      row = rowC;
+      column = column3;
+    }
+    else
+      throw new AssertionError(
+        "getCoordinates() called with invalid argument: " + name);
+    
+    return new Coordinates(row, column);
   }
   
   // Uses parameter name to find the correct square in the matrix
