@@ -129,6 +129,9 @@ public class Application
   private Square getCorrespondingSquare(String name)
   {
     Coordinates coordinates = mCoordinates.get(name);
+    
+    
+    
     return mBoard[coordinates.getRow()][coordinates.getColumn()];
   }
   
