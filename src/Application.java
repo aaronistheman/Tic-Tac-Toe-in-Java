@@ -8,6 +8,7 @@
  */
  
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -117,6 +118,9 @@ public class Application
     if (badInput(input))
       input = mScanner.nextLine();
     
+    // Eliminate case sensitivity
+    input = input.toLowerCase(Locale.ENGLISH);
+    
     return input;
   }
   
@@ -130,7 +134,9 @@ public class Application
   {
     Coordinates coordinates = mCoordinates.get(name);
     
-    
+    if (coordinates == null)
+      throw new IllegalArgumentException(
+        "The following square does not exist: " + name);
     
     return mBoard[coordinates.getRow()][coordinates.getColumn()];
   }
