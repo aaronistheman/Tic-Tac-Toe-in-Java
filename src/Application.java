@@ -79,12 +79,15 @@ public class Application
   
   private void displayBoard()
   {
-    String row1 = "   " + mBoard[rowA][0].getMark() + "| " + 
-      mBoard[rowA][1].getMark() + "| " + mBoard[rowA][2].getMark();
-    String row2 = "   " + mBoard[rowB][0].getMark() + "| " + 
-      mBoard[rowB][1].getMark() + "| " + mBoard[rowB][2].getMark();
-    String row3 = "   " + mBoard[rowC][0].getMark() + "| " + 
-      mBoard[rowC][1].getMark() + "| " + mBoard[rowC][2].getMark();
+    String row1 = "   " + mBoard[rowA][column1].getMark() + "| " + 
+      mBoard[rowA][column2].getMark() + "| " + 
+      mBoard[rowA][column3].getMark();
+    String row2 = "   " + mBoard[rowB][column1].getMark() + "| " + 
+      mBoard[rowB][column2].getMark() + "| " + 
+      mBoard[rowB][column3].getMark();
+    String row3 = "   " + mBoard[rowC][column1].getMark() + "| " + 
+      mBoard[rowC][column2].getMark() + "| " + 
+      mBoard[rowC][column3].getMark();
     
     System.out.println(row1);
     System.out.println("a __|__|__");
