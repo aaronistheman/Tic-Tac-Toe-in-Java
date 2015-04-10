@@ -122,75 +122,17 @@ public class Application
     return false;
   }
   
-  // Uses parameter name to find the coordinates of the corresponding square
-  private Coordinates getCoordinates(String name)
-  {
-    int row = 0;
-    int column = 0;
-    
-    if (name.equals("a1"))
-    {
-      row = rowA;
-      column = column1;
-    }
-    else if (name.equals("a2"))
-    {
-      row = rowA;
-      column = column2;
-    }
-    else if (name.equals("a3"))
-    {
-      row = rowA;
-      column = column3;
-    }
-    else if (name.equals("b1"))
-    {
-      row = rowB;
-      column = column1;
-    }
-    else if (name.equals("b2"))
-    {
-      row = rowB;
-      column = column2;
-    }
-    else if (name.equals("b3"))
-    {
-      row = rowB;
-      column = column3;
-    }
-    else if (name.equals("c1"))
-    {
-      row = rowC;
-      column = column1;
-    }
-    else if (name.equals("c2"))
-    {
-      row = rowC;
-      column = column2;
-    }
-    else if (name.equals("c3"))
-    {
-      row = rowC;
-      column = column3;
-    }
-    else
-      throw new AssertionError(
-        "getCoordinates() called with invalid argument: " + name);
-    
-    return new Coordinates(row, column);
-  }
-  
   // Uses parameter name to find the correct square in the matrix
-  private Square getCorrespondingSquare(Square[][] squares, String name)
+  private Square getCorrespondingSquare(String name)
   {
-    Coordinates coordinates = getCoordinates(name);
+    Coordinates coordinates = mCoordinates.get(name);
     return mBoard[coordinates.getRow()][coordinates.getColumn()];
   }
   
   // Changes the approriate square's mark to match the active player's mark
   private void updateBoard(String square)
   {
-    getCorrespondingSquare(mBoard, square).setMark(mCurrentTurn);
+    getCorrespondingSquare(square).setMark(mCurrentTurn);
   }
   
   private void switchTurn()
