@@ -10,8 +10,8 @@
 public class Coordinates {
   
   // ******************  Instance variables  ******************
-  public int mRow;
-  public int mColumn;
+  private int mRow;
+  private int mColumn;
   
   // *********************  Constructors  *********************
 
@@ -19,5 +19,17 @@ public class Coordinates {
   {
     mRow = row;
     mColumn = column;
+  }
+  
+  // ********************  Public methods  ********************
+  
+  public int getRow()
+  {
+    return mRow;
+  }
+  
+  public int getColumn()
+  {
+    return mColumn;
   }
 }

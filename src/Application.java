@@ -168,7 +168,7 @@ public class Application
   private Square getCorrespondingSquare(Square[][] squares, String name)
   {
     Coordinates coordinates = getCoordinates(name);
-    return mBoard[coordinates.mRow][coordinates.mColumn];
+    return mBoard[coordinates.getRow()][coordinates.getColumn()];
   }
   
   // Changes the approriate square's mark to match the active player's mark
