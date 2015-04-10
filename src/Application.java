@@ -7,6 +7,8 @@
  * @version 1.00 2014/12/30
  */
  
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
  
@@ -34,6 +36,7 @@ public class Application
   private Scanner mScanner; // for input
   
   private Square[][] mBoard;
+  private Map<String, Coordinates> mCoordinates;
   
   // *********************  Constructors  *********************
   
@@ -42,12 +45,25 @@ public class Application
     mCurrentTurn = markX;
     mScanner = new Scanner(System.in);
     
+    // Initialize the game board's matrix
     mBoard = new Square[3][3];
     for (int r = 0; r < mBoard.length; r++)
       for (int c = 0; c < mBoard[r].length; c++)
       {
         mBoard[r][c] = new Square(markBlank);
       }
+      
+    // Initialize the map of square names mapped to coordinates
+    mCoordinates = new HashMap<String, Coordinates>();
+    mCoordinates.put("a1", new Coordinates(rowA, column1));
+    mCoordinates.put("a2", new Coordinates(rowA, column2));
+    mCoordinates.put("a3", new Coordinates(rowA, column3));
+    mCoordinates.put("b1", new Coordinates(rowB, column1));
+    mCoordinates.put("b2", new Coordinates(rowB, column2));
+    mCoordinates.put("b3", new Coordinates(rowB, column3));
+    mCoordinates.put("c1", new Coordinates(rowC, column1));
+    mCoordinates.put("c2", new Coordinates(rowC, column2));
+    mCoordinates.put("c3", new Coordinates(rowC, column3));
   }
   
   // ********************  Public methods  ********************
@@ -106,75 +122,17 @@ public class Application
     return false;
   }
   
-  // Uses parameter name to find the coordinates of the corresponding square
-  private Coordinates getCoordinates(String name)
-  {
-    int row = 0;
-    int column = 0;
-    
-    if (name.equals("a1"))
-    {
-      row = rowA;
-      column = column1;
-    }
-    else if (name.equals("a2"))
-    {
-      row = rowA;
-      column = column2;
-    }
-    else if (name.equals("a3"))
-    {
-      row = rowA;
-      column = column3;
-    }
-    else if (name.equals("b1"))
-    {
-      row = rowB;
-      column = column1;
-    }
-    else if (name.equals("b2"))
-    {
-      row = rowB;
-      column = column2;
-    }
-    else if (name.equals("b3"))
-    {
-      row = rowB;
-      column = column3;
-    }
-    else if (name.equals("c1"))
-    {
-      row = rowC;
-      column = column1;
-    }
-    else if (name.equals("c2"))
-    {
-      row = rowC;
-      column = column2;
-    }
-    else if (name.equals("c3"))
-    {
-      row = rowC;
-      column = column3;
-    }
-    else
-      throw new AssertionError(
-        "getCoordinates() called with invalid argument: " + name);
-    
-    return new Coordinates(row, column);
-  }
-  
   // Uses parameter name to find the correct square in the matrix
-  private Square getCorrespondingSquare(Square[][] squares, String name)
+  private Square getCorrespondingSquare(String name)
   {
-    Coordinates coordinates = getCoordinates(name);
+    Coordinates coordinates = mCoordinates.get(name);
     return mBoard[coordinates.getRow()][coordinates.getColumn()];
   }
   
   // Changes the approriate square's mark to match the active player's mark
   private void updateBoard(String square)
   {
-    getCorrespondingSquare(mBoard, square).setMark(mCurrentTurn);
+    getCorrespondingSquare(square).setMark(mCurrentTurn);
   }
   
   private void switchTurn()
