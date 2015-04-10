@@ -18,12 +18,17 @@ public class Application
   static final char o = 'o';
   static final char blank = ' ';
   
+  // game board row coordinates
+  static final int a = 0;
+  static final int b = 1;
+  static final int c = 2;
+  
   // ******************  Instance variables  ******************
   
   char mCurrentTurn;
   Scanner mScanner; // for input
   
-  Square a1, a2, a3, b1, b2, b3, c1, c2, c3;
+  Square[][] mBoard;
   
   // *********************  Constructors  *********************
   
@@ -32,15 +37,10 @@ public class Application
     mCurrentTurn = x;
     mScanner = new Scanner(System.in);
     
-    a1 = new Square("a1", blank);
-    a2 = new Square("a2", blank);
-    a3 = new Square("a3", blank);
-    b1 = new Square("b1", blank);
-    b2 = new Square("b2", blank);
-    b3 = new Square("b3", blank);
-    c1 = new Square("c1", blank);
-    c2 = new Square("c2", blank);
-    c3 = new Square("c3", blank);
+    mBoard = new Square[3][3];
+    for (Square[] row : mBoard)
+      for (Square square : row)
+        square.setMark(blank);
   }
   
   // ********************  Public methods  ********************
