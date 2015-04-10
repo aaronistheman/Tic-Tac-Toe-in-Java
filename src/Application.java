@@ -99,6 +99,7 @@ public class Application
     return false;
   }
   
+  // Uses the parameter to find the appropriate square
   private Square getCorrespondingSquare(String name)
   {
     if (a1.getName().equals(name))
@@ -124,8 +125,7 @@ public class Application
         "getCorrespondingSquare() called with invalid argument: " + name);
   }
   
-  // Uses the parameter to find the appropriate Square,
-  // then changes that Square's mark to the current player's mark
+  // Changes the approriate square's mark to match the active player's mark
   private void updateBoard(String square)
   {
     getCorrespondingSquare(square).setMark(mCurrentTurn);
