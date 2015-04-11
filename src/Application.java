@@ -74,6 +74,8 @@ public class Application
     doTurn();
     doTurn();
     doTurn();
+    doTurn();
+    doTurn();
   }
   
   // ********************  Private methods ********************
@@ -110,6 +112,10 @@ public class Application
   {
     // Confirm that a square's name was inputted
     if (!mCoordinates.containsKey(name))
+      return true;
+      
+    // Confirm that the selected square is blank
+    if (getCorrespondingSquare(name).getMark() != markBlank)
       return true;
     
     return false;
