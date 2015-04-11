@@ -106,6 +106,15 @@ public class Application
     switchTurn();
   }
   
+  private boolean badInput(String name)
+  {
+    // Confirm that a square's name was inputted
+    if (!mCoordinates.containsKey(name))
+      return true;
+    
+    return false;
+  }
+  
   private String getInput()
   {
     // Show prompt
@@ -113,20 +122,15 @@ public class Application
     System.out.println("Enter the address of the square in which you");
     System.out.println("would like your shape (ex: b2).");
     
-    // Asks for input until given valid input
-    String input = mScanner.nextLine();
+    // Ask for case insensitive input until given valid input
+    String input = mScanner.nextLine().toLowerCase(Locale.ENGLISH);
     if (badInput(input))
-      input = mScanner.nextLine();
-    
-    // Eliminate case sensitivity
-    input = input.toLowerCase(Locale.ENGLISH);
+    {
+      System.out.println("\nInvalid input");
+      input = getInput();
+    }
     
     return input;
-  }
-  
-  private boolean badInput(String square)
-  {
-    return false;
   }
   
   // Uses parameter name to find the correct square in the matrix
