@@ -9,11 +9,38 @@
 			<label>TicTacToe</label>
 			<showfiles>false</showfiles>
 			<folderitem>
-				<path>classes</path>
-			</folderitem>
-			<folderitem>
 				<path>src</path>
 			</folderitem>
+			<fileitem>
+				<path>src\Application.java</path>
+				<collapsedfolds>0;0;0;82;71;43</collapsedfolds>
+			</fileitem>
 		</project>
 	</projects>
+	<open_files>
+		<docitem>
+			<path>src\Application.java</path>
+			<source>true</source>
+			<index>0</index>
+			<active>true</active>
+		</docitem>
+		<docitem>
+			<path>src\Main.java</path>
+			<source>true</source>
+			<index>1</index>
+			<active>false</active>
+		</docitem>
+		<docitem>
+			<path>src\Square.java</path>
+			<source>true</source>
+			<index>2</index>
+			<active>false</active>
+		</docitem>
+		<docitem>
+			<path>src\Coordinates.java</path>
+			<source>true</source>
+			<index>3</index>
+			<active>false</active>
+		</docitem>
+	</open_files>
 </workspace_user>
